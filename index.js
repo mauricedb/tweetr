@@ -4,7 +4,7 @@
 
 var Twitter = require('twitter');
 var tweets = require('./data/tweets');
-var interval = 1000 * 60 * 60 * 6;
+var interval = 1000 * 60 * 60 * 1;
 
 var client = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
