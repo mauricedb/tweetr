@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/mauricedb/tweetr#readme",
   "dependencies": {
-    "twitter": "^1.2.5"
+    "twitter": "1.2.5"
   }
 }

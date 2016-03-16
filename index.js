@@ -4,7 +4,6 @@
 
 var Twitter = require('twitter');
 var tweets = require('./data/tweets');
-var interval = 1000 * 60 * 60 * 1;
 
 var client = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -26,16 +25,12 @@ function sendTweet(status) {
         },
         function (error, tweet, response) {
             if (error) throw error;
-            console.log(tweet);  // Tweet body.
-            //console.log(response);  // Raw response object.
         });
 }
 
 
-setInterval(function () {
-    var tweet = getTweet();
-    if (tweet) {
-        console.log(tweet);
-        sendTweet(tweet);
-    }
-}, interval);
+var tweet = getTweet();
+if (tweet) {
+    console.log(tweet);
+    sendTweet(tweet);
+}
