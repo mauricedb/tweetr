@@ -32,6 +32,6 @@ function sendTweet(status) {
 getTweet(function (tweet) {
     if (tweet) {
         console.log(tweet.tweet);
-        //sendTweet(tweet);
+        sendTweet(tweet);
     }
 });
