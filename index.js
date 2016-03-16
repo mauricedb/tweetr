@@ -1,9 +1,5 @@
-/**
- * Created by maurice on 3/15/2016.
- */
-
 var Twitter = require('twitter');
-var tweets = require('./data/tweets');
+var GoogleSpreadsheet = require("google-spreadsheet");
 
 var client = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -12,15 +8,20 @@ var client = new Twitter({
     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-function getTweet() {
-    var index = Math.floor(Math.random() * tweets.length);
-    return tweets[index];
+function getTweet(cb) {
+    var sheet = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID);
+
+    sheet.getRows(1, function (error, tweets) {
+        if (error) throw error;
+
+        var index = Math.floor(Math.random() * tweets.length);
+        var tweet = tweets[index];
+        cb(tweet);
+    });
 }
 
 function sendTweet(status) {
-
-    client.post('statuses/update',
-        {
+    client.post('statuses/update', {
             status: status
         },
         function (error, tweet, response) {
@@ -28,9 +29,9 @@ function sendTweet(status) {
         });
 }
 
-
-var tweet = getTweet();
-if (tweet) {
-    console.log(tweet);
-    sendTweet(tweet);
-}
+getTweet(function (tweet) {
+    if (tweet) {
+        console.log(tweet.tweet);
+        //sendTweet(tweet);
+    }
+});
