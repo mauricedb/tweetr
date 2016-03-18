@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mauricedb/tweetr#readme",
   "dependencies": {
-    "google-spreadsheet": "1.1.4",
+    "google-spreadsheet": "2.0.0",
     "twitter": "1.2.5"
   }
 }
