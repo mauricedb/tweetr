@@ -11,8 +11,13 @@ var client = new Twitter({
 function getTweet(cb) {
     var sheet = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID);
 
-    sheet.getRows(1, function (error, tweets) {
+    var sheets = [1, 2];
+    var sheetIndex = Math.floor(Math.random() * sheets.length);
+
+    sheet.getRows(sheets[sheetIndex], function (error, tweets) {
         if (error) throw error;
+
+        console.log(sheets[sheetIndex], tweets.length);
 
         var index = Math.floor(Math.random() * tweets.length);
         var tweet = tweets[index];
@@ -30,8 +35,14 @@ function sendTweet(status) {
 }
 
 getTweet(function (tweet) {
-    if (tweet) {
-        console.log(tweet.tweet);
+    if (tweet && tweet.tweet) {
+        var msg = tweet.tweet;
+
+        if (tweet.link) {
+            msg += ' ' + tweet.link;
+        }
+
+        console.log(msg);
         sendTweet(tweet);
     }
 });
