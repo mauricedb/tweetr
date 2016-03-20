@@ -1,6 +1,7 @@
 var Twitter = require('twitter');
 var GoogleSpreadsheet = require("google-spreadsheet");
 
+
 var client = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -25,12 +26,17 @@ function getTweet(cb) {
     });
 }
 
+
 function sendTweet(status) {
+    console.log(status);
     client.post('statuses/update', {
             status: status
         },
         function (error, tweet, response) {
-            if (error) throw error;
+            if (error) {
+                console.log(error);
+                throw error;
+            }
         });
 }
 
@@ -42,7 +48,6 @@ getTweet(function (tweet) {
             msg += ' ' + tweet.link;
         }
 
-        console.log(msg);
-        sendTweet(tweet);
+        sendTweet(msg);
     }
 });
