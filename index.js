@@ -29,6 +29,7 @@ function getTweet(cb) {
 
 function sendTweet(status) {
     console.log(status);
+
     client.post('statuses/update', {
             status: status
         },
@@ -43,6 +44,10 @@ function sendTweet(status) {
 getTweet(function (tweet) {
     if (tweet && tweet.tweet) {
         var msg = tweet.tweet;
+
+        if (tweet.by) {
+            msg += '. By ' + tweet.by;
+        }
 
         if (tweet.link) {
             msg += ' ' + tweet.link;
