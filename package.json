@@ -21,6 +21,6 @@
   "dependencies": {
     "@zeit/ncc": "0.5.5",
     "google-spreadsheet": "2.0.6",
-    "twitter": "1.7.0"
+    "twitter": "1.7.1"
   }
 }
