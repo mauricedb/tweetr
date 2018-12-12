@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "ncc run ./index.js",
+    "build": "ncc build ./index.js",
     "test": "node index.js"
   },
   "repository": {
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/mauricedb/tweetr#readme",
   "dependencies": {
+    "@zeit/ncc": "0.5.5",
     "google-spreadsheet": "2.0.6",
     "twitter": "1.7.0"
   }
