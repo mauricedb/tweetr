@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@zeit/ncc@0.18.4":
-  version "0.18.4"
-  resolved "https://registry.yarnpkg.com/@zeit/ncc/-/ncc-0.18.4.tgz#3ec6d1c20ffd0d2dc100cc359aa46b6e8441f27d"
-  integrity sha512-ReR2bPj9afe6lW66a4sq6QTkG3Nox+k8YidC6KhCsxavDzjlmD59i7CPY7cBMJjrpU7u4OiduK11Xp1yqIJ+uQ==
+"@zeit/ncc@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@zeit/ncc/-/ncc-0.19.0.tgz#1aa89d71eecdcf55fec1c824e7b9bfc1dcb7dde3"
+  integrity sha512-SV/90XT+TTNAcdJDGXJU4Jh14ygQXTJFvg/qIa99m/ev3RrBk2KGrWoi0ENS8iP2mePoHW0jsapDS76X+O46Ag==
 
 ajv@^6.5.5:
   version "6.6.1"
