@@ -20,7 +20,7 @@
   "homepage": "https://github.com/mauricedb/tweetr#readme",
   "dependencies": {
     "@zeit/ncc": "0.20.5",
-    "google-spreadsheet": "2.0.9",
+    "google-spreadsheet": "3.0.3",
     "twitter": "1.7.1"
   }
 }
